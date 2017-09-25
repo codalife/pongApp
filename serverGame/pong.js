@@ -21,9 +21,13 @@ class Pong {
 				this.direction.yAxis = - this.direction.yAxis;
 			}
 		}, 10);
+		return this.ball;
 
+	}
+	getPosition() {
+		return this.ball();
 	}
 
 }
 
-module.exports.Pong = Pong;
+module.exports = Pong;
