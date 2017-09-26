@@ -8,10 +8,11 @@ var local = require('./localStategy');
 
 var models = require('./db');
 var game = require('./game');
+var twilio = require('./twilio');
 
 var User = models.User;
 
-
+app.post('/invite', bodyParser.json(), twilio);
 // app.use(express.session({ secret: 'your secret key' }));
 app.use(passport.initialize());
 app.use(passport.session());

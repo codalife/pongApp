@@ -5,6 +5,7 @@ export default class Pong extends React.Component {
     super(props);
     this.ball = document.getElementById('ball');
     this.state = {
+      number: '',
     	player: 1,
     	gameStatus: 'hold',
     	ballStyle: {
@@ -19,6 +20,8 @@ export default class Pong extends React.Component {
     this.play = this.play.bind(this);
     this.getStatus = this.getStatus.bind(this);
     this.movePaddle = this.movePaddle.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -64,16 +67,16 @@ export default class Pong extends React.Component {
   }
 
   movePaddle(e) {
-	const newTop = parseInt(this.state.paddleStyle.top.slice(0, -2));
+	  const newTop = parseInt(this.state.paddleStyle.top.slice(0, -2));
 
-  	if (e.key === 'ArrowUp') {
-  		this.setState({
-  			paddleStyle: {
-  				top: newTop - 30 + 'px',
-  				left: this.state.paddleStyle.left
-  			}
-  		})
-  	} else if (e.key === 'ArrowDown') {
+    	if (e.key === 'ArrowUp') {
+    		this.setState({
+    			paddleStyle: {
+    				top: newTop - 30 + 'px',
+    				left: this.state.paddleStyle.left
+    			}
+    		})
+    	} else if (e.key === 'ArrowDown') {
   		this.setState({
   			paddleStyle: {
   				top: newTop + 30 + 'px',
@@ -82,10 +85,28 @@ export default class Pong extends React.Component {
   		})
   	}
   }
+
+  handleChange(event) {
+    this.setState({number: event.target.value});
+  }
+
+  handleSubmit() {
+    const number = this.state.number;
+
+    axios.post('/invite', {
+      number: number,
+      text: 'Play pong with me'
+    }).then(res => console.log(res))
+  }
+
   render() {
   	return (
 	<div>
 	  <button onClick={this.play}>Start</button>
+    <form onSubmit={this.handleSubmit}>
+      <input value={this.state.number} onChange={this.handleChange}/>
+      <input type="submit" value="Submit" />
+    </form>
       <div id='playground'>
       	<div id='ball' style={this.state.ballStyle} />
       	<div id='player1' style={this.state.paddleStyle} />

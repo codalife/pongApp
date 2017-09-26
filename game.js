@@ -20,7 +20,6 @@ module.exports = (req, res, next) => {
 			let o = param.split('=');
 			paddle[o[0]] = parseInt(o[1].slice(0, -2));
 		})
-		// console.log(params)
 		res.send(instancesOfPong[0].getPosition());
 	}
 }
