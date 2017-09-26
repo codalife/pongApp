@@ -42,7 +42,7 @@ app.use('/logic', express.static(path.join(__dirname, 'public')));
 app.get('/play', game);
 app.get('/getStat', game);
 
-app.get('/game', (req, res) => {
+app.post('/game', (req, res) => {
 	res.sendFile(__dirname + '/public/index.html')
 });
 
