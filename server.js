@@ -2,20 +2,20 @@
 var express = require('express');
 var path = require('path');
 var app = require('express')();
-var passport = require('passport');
+// var passport = require('passport');
 var bodyParser = require('body-parser')
-var local = require('./localStategy');
+// var local = require('./localStategy');
 
-var models = require('./db');
+// var models = require('./db');
 var game = require('./game');
 var twilio = require('./twilio');
 
-var User = models.User;
+// var User = models.User;
 
 app.post('/invite', bodyParser.json(), twilio);
 // app.use(express.session({ secret: 'your secret key' }));
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/public/signup.html');
