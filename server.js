@@ -21,17 +21,17 @@ app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/public/signup.html');
 })
 
-app.post('/signup', bodyParser.urlencoded({ extended: false }), (req, res) => {
-	console.log(req.body)
-	const user = new User(req.body);
+// app.post('/signup', bodyParser.urlencoded({ extended: false }), (req, res) => {
+// 	console.log(req.body)
+// 	const user = new User(req.body);
 
-	user.save().then(() => res.redirect('/game'));
-})
+// 	user.save().then(() => res.redirect('/game'));
+// })
 
-app.post('/login',
-  passport.authenticate('local', { successRedirect: '/',
-                                   failureRedirect: '/login'})
-);
+// app.post('/login',
+//   passport.authenticate('local', { successRedirect: '/',
+//                                    failureRedirect: '/login'})
+// );
 
 
 
