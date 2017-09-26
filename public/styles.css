@@ -1,0 +1,21 @@
+#ball {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: purple;
+	position: absolute;
+}
+
+#playground {
+	background-color: gray;
+	width: 400px;
+	height: 300px;
+	position: relative;
+}
+
+#player1 {
+	width: 10px;
+	height: 50px;
+	position: absolute;
+	background-color: black;
+}

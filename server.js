@@ -36,8 +36,8 @@ app.get('/', (req, res) => {
 
 
 
-app.use('/static', express.static(path.join(__dirname, '/client/dist/')));
-app.use('/logic', express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
+// app.use('/logic', express.static(path.join(__dirname, 'public')));
 
 app.get('/play', game);
 app.get('/getStat', game);
