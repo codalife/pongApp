@@ -7,7 +7,7 @@ mongoose.connect('mongodb://127.0.0.1/pong', {
 var db = mongoose.connection;
 
 var userSchema = mongoose.Schema({
-  name: String,
+  username: String,
   password: String
 });
 

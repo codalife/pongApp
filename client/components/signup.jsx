@@ -4,7 +4,7 @@ export default class Signup extends React.Component {
 
 	render() {
 		return (
-				<form action="/login" method="post">
+				<form action="/signup" method="post">
 				    <div>
 				        <label>Username:</label>
 				        <input type="text" name="username"/>
@@ -14,7 +14,7 @@ export default class Signup extends React.Component {
 				        <input type="password" name="password"/>
 				    </div>
 				    <div>
-				        <input type="submit" value="Log In"/>
+				        <input type="submit" value="Sign Up"/>
 				    </div>
 				</form>
 			)
