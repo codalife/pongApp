@@ -17,15 +17,18 @@ class Pong {
 				x: this.ball.x + this.direction.xAxis,
 				y: this.ball.y + this.direction.yAxis
 			}
-			if (this.ball.y === 0 || this.ball.y === this.height) {
+			if (this.ball.y <= 0 || this.ball.y >= this.height) {
 				this.direction.yAxis = - this.direction.yAxis;
+			}
+			if (this.ball.x <= 0 || this.ball.x >= this.length) {
+				this.direction.xAxis = - this.direction.xAxis;
 			}
 		}, 10);
 		return this.ball;
 
 	}
 	getPosition() {
-		return this.ball();
+		return this.ball;
 	}
 
 }
