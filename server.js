@@ -5,6 +5,7 @@ var app = require('express')();
 // var passport = require('passport');
 var bodyParser = require('body-parser')
 // var local = require('./localStategy');
+var port = process.env.PORT || 3000;
 
 // var models = require('./db');
 var game = require('./game');
@@ -45,4 +46,4 @@ app.get('/game', (req, res) => {
 	res.sendFile(__dirname + '/public/index.html')
 });
 
-app.listen(3000);
+app.listen(port);
